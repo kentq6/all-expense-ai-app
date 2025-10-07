@@ -55,7 +55,7 @@ export default function AboutPage() {
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl mx-auto">
             At AllExpense AI, we leverage cutting-edge artificial
             intelligence to revolutionize how individuals achieve financial
-            wellness. Our AI analyzes your spending patterns to deliver
+            wellness. AI can analyze your spending patterns to deliver
             personalized recommendations and actionable insights that lead to
             better budgeting and financial freedom.
           </p>
@@ -103,7 +103,7 @@ export default function AboutPage() {
               </span>
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Discover the powerful features that make our AI-driven platform
+              Discover the powerful features that make this AI-driven platform
               the smart choice for modern financial management.
             </p>
           </div>
@@ -136,7 +136,7 @@ export default function AboutPage() {
                   Smart Categorization
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                  Let our AI automatically categorize your expenses with 99%
+                  Use AI to automatically categorize your expenses with 99%
                   accuracy and provide tailored recommendations to enhance your
                   budget management effortlessly.
                 </p>
@@ -172,7 +172,7 @@ export default function AboutPage() {
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-3 py-1 rounded-full text-sm font-medium mb-6">
               <span className="w-1.5 h-1.5 bg-emerald-500 dark:bg-emerald-400 rounded-full"></span>
-              Our Story
+              My Story
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-8 text-gray-900 dark:text-gray-100">
               Built for the{" "}
@@ -186,16 +186,15 @@ export default function AboutPage() {
             <div className="space-y-6">
               <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
                 AllExpense AI was born from the vision of creating truly
-                intelligent financial management tools. Our team of financial
-                experts, data scientists, and technologists came together to
+                intelligent financial management tools. I wanted to
                 solve a critical problem: making personal finance management
                 smarter, more intuitive, and more effective.
               </p>
               <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-                Since our launch, we&#39;ve helped thousands of users achieve
+                {/* Since its launch, we&#39;ve helped thousands of users achieve
                 better budgeting and improve their overall financial health
-                through the power of artificial intelligence. Every feature is
-                designed with user experience and financial wellness in mind.
+                through the power of artificial intelligence. */}
+                Every feature is designed with user experience and financial wellness in mind.
               </p>
               {/* <div className="flex items-center gap-4 pt-4">
                 <div className="flex -space-x-2">
@@ -261,8 +260,9 @@ export default function AboutPage() {
           </h2>
 
           <p className="text-xl md:text-2xl mb-10 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            Join thousands of users who have already transformed their financial
-            habits with AllExpense AI. Start your journey towards smarter
+            {/* Join thousands of users who have already transformed their financial
+            habits with AllExpense AI.  */}
+            Start your journey towards smarter
             budgeting today.
           </p>
 

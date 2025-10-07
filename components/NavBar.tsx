@@ -44,7 +44,7 @@ export default function Navbar() {
           <div className='hidden md:flex items-center space-x-1'>
             <Link
               href='/'
-              className='relative text-gray-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 px-3 lg:px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 group'
+              className='relative text-gray-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 px-3 lg:px-4 py-2 rounded-xl text-lg font-medium transition-all duration-200 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 group'
             >
               <span className='relative z-10'>Home</span>
               <div className='absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-green-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200'></div>
@@ -52,7 +52,7 @@ export default function Navbar() {
 
             <Link
               href='/about'
-              className='relative text-gray-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 px-3 lg:px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 group'
+              className='relative text-gray-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 px-3 lg:px-4 py-2 rounded-xl text-lg font-medium transition-all duration-200 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 group'
             >
               <span className='relative z-10'>About</span>
               <div className='absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-green-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200'></div>
@@ -70,9 +70,9 @@ export default function Navbar() {
           {/* Right Section */}
           <div className='flex items-center space-x-1 sm:space-x-2'>
             {/* Theme Toggle */}
-            <div className='p-0.5 sm:p-1'>
+            {/* <div className='p-0.5 sm:p-1'>
               <ThemeToggle />
-            </div>
+            </div> */}
 
             {/* Authentication - Desktop */}
             <div className='hidden sm:block'>
