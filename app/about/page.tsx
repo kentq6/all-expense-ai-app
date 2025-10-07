@@ -30,12 +30,12 @@ export default function AboutPage() {
               <span className="relative z-10">Start Your Journey</span>
               <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
             </Link>
-            <Link
+            {/* <Link
               href="/contact"
               className="group border-2 border-emerald-500/20 dark:border-emerald-400/20 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold transition-all duration-200 backdrop-blur-sm"
             >
               Learn More
-            </Link>
+            </Link> */}
           </div>
         </div>
       </section>
@@ -197,7 +197,7 @@ export default function AboutPage() {
                 through the power of artificial intelligence. Every feature is
                 designed with user experience and financial wellness in mind.
               </p>
-              <div className="flex items-center gap-4 pt-4">
+              {/* <div className="flex items-center gap-4 pt-4">
                 <div className="flex -space-x-2">
                   <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-green-500 rounded-full border-2 border-white dark:border-gray-800"></div>
                   <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-teal-500 rounded-full border-2 border-white dark:border-gray-800"></div>
@@ -207,7 +207,7 @@ export default function AboutPage() {
                   <div className="font-semibold">Trusted by 10,000+ users</div>
                   <div>Join our growing community</div>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <div className="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 p-8 rounded-2xl border border-emerald-100 dark:border-emerald-800/50">
@@ -278,7 +278,7 @@ export default function AboutPage() {
               <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
             </Link>
 
-            <Link
+            {/* <Link
               href="/contact"
               className="group border-2 border-emerald-500/20 dark:border-emerald-400/20 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 px-8 py-4 rounded-2xl font-semibold transition-all duration-200 backdrop-blur-sm flex items-center gap-2"
             >
@@ -286,7 +286,7 @@ export default function AboutPage() {
               <span className="text-lg group-hover:translate-x-0.5 transition-transform duration-200">
                 💬
               </span>
-            </Link>
+            </Link> */}
           </div>
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">

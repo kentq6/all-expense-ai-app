@@ -45,13 +45,13 @@ const Footer = () => {
                 <span className="w-1.5 h-1.5 bg-emerald-500 dark:bg-emerald-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
                 About
               </Link>
-              <Link
+              {/* <Link
                 href="/contact"
                 className="group inline-flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 text-sm font-medium transition-colors duration-200"
               >
                 <span className="w-1.5 h-1.5 bg-emerald-500 dark:bg-emerald-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
                 Contact
-              </Link>
+              </Link> */}
             </div>
           </div>
 

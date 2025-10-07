@@ -58,13 +58,13 @@ export default function Navbar() {
               <div className='absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-green-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200'></div>
             </Link>
 
-            <Link
+            {/* <Link
               href='/contact'
               className='relative text-gray-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 px-3 lg:px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 group'
             >
               <span className='relative z-10'>Contact</span>
               <div className='absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-green-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200'></div>
-            </Link>
+            </Link> */}
           </div>
 
           {/* Right Section */}
@@ -175,14 +175,14 @@ export default function Navbar() {
               <span className='text-base'>ℹ️</span>
               <span>About</span>
             </Link>
-            <Link
+            {/* <Link
               href='/contact'
               className='flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 text-sm font-medium transition-all duration-200 active:scale-95'
               onClick={closeMobileMenu}
             >
               <span className='text-base'>📞</span>
               <span>Contact</span>
-            </Link>
+            </Link> */}
 
             {/* Mobile Authentication */}
             <div className='pt-3 border-t border-gray-200/50 dark:border-gray-600/50'>
