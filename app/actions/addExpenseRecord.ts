@@ -17,7 +17,12 @@ interface RecordResult {
 }
 
 export default async function addExpenseRecord(formData: FormData): Promise<RecordResult> {
-  const [ textValue, amountValue, categoryValue, dateValue ] = formData;
+  const { text: textValue, amount: amountValue, category: categoryValue, date: dateValue } = {
+    text: formData.get('text'),
+    amount: formData.get('amount'),
+    category: formData.get('category'),
+    date: formData.get('date')
+  };
 
   // Check for input values
   if (!textValue || !amountValue || !categoryValue || !dateValue) {
@@ -25,20 +30,21 @@ export default async function addExpenseRecord(formData: FormData): Promise<Reco
   }
 
   const text: string = textValue.toString(); // Ensure text is a string
-  const amount: number = parseFloat(amountValue.toString()); // Ensure amount is a number
+  const amount: number = parseFloat(amountValue.toString()); // Parse amount as number
   const category: string = categoryValue.toString(); // Ensure category is a string
   // Convert date to ISO-8601 format while preserving the user's input date
   let date: string;
   try {
-    // Parse the data string (YYYY-MM-DD format) and create a data at noon UTC to avoid timezone issues
+    // Parse the date string (YYYY-MM-DD format) and create a data at noon UTC to avoid timezone issues
     const inputDate = dateValue.toString();
+    
     const [year, month, day] = inputDate.split('-');
     const dateObj = new Date(
       Date.UTC(parseInt(year), parseInt(month) - 1, parseInt(day), 12, 0, 0)
     );
     date = dateObj.toISOString();
   } catch (error) {
-    console.log('Invalid date format: ', error); // log the error
+    console.error('Invalid date format: ', error); // log the error
     return { error: 'Invalid date format.' };
   }
 
@@ -58,7 +64,7 @@ export default async function addExpenseRecord(formData: FormData): Promise<Reco
         category,
         date, // Save the date to the database
         userId,
-      }
+      },
     });
 
     const recordData: RecordData = {
@@ -66,7 +72,7 @@ export default async function addExpenseRecord(formData: FormData): Promise<Reco
       amount: createdRecord.amount,
       category: createdRecord.category,
       date: createdRecord.date?.toISOString() || date,
-    }
+    };
 
     revalidatePath('/');
 
