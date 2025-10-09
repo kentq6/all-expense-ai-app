@@ -8,7 +8,7 @@ export default function AddNewRecord() {
   const formRef = useRef<HTMLFormElement>(null);
   const [isLoading, setIsLoading] = useState(false); // State for loading spinner
   const [alertMessage, setAlertMessage] = useState<string | null>(null); // State for alert message
-  const [amount, setAmount] = useState(0); // State for expense amount
+  const [amount, setAmount] = useState(''); // State for expense amount as string
   const [alertType, setAlertType] = useState<'success' | 'error' | null>(null); // State for alert type
   const [category, setCategory] = useState(''); // State for expense category
   const [description, setDescription] = useState(''); // State for expense description
@@ -18,7 +18,7 @@ export default function AddNewRecord() {
     setIsLoading(true); // Show spinner
     setAlertMessage(null); // Clear previous messages
 
-    formData.set('amount', amount.toString()); // Add the amount value to the form data
+    formData.set('amount', amount); // Add the amount value to the form data
     formData.set('category', category); // Add the category value to the form data
 
     const { error } = await addExpenseRecord(formData); // Removed 'data' since it's unused
@@ -34,12 +34,49 @@ export default function AddNewRecord() {
         setAlertType(null);
       }, 5000);
       formRef.current?.reset();
-      setAmount(0); // Reset the amount to the default value
+      setAmount(''); // Reset the amount to the default value
       setCategory('');
       setDescription('');
     }
 
     setIsLoading(false); // Hide spinner
+  };
+
+  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    
+    // Allow empty string
+    if (value === '') {
+      setAmount('');
+      return;
+    }
+    
+    // Remove any non-numeric characters except decimal point
+    const numericValue = value.replace(/[^0-9.]/g, '');
+    
+    // Prevent multiple decimal points
+    const parts = numericValue.split('.');
+    if (parts.length > 2) {
+      return;
+    }
+    
+    // Limit to 2 decimal places
+    if (parts.length === 2 && parts[1].length > 2) {
+      return;
+    }
+    
+    // Prevent leading zeros (except for decimal numbers like 0.50)
+    if (numericValue.length > 1 && numericValue[0] === '0' && numericValue[1] !== '.') {
+      return;
+    }
+    
+    // Limit maximum value to 1000
+    const numValue = parseFloat(numericValue);
+    if (numValue > 1000) {
+      return;
+    }
+    
+    setAmount(numericValue);
   };
 
   const handleAISuggestCategory = async () => {
@@ -247,11 +284,8 @@ export default function AddNewRecord() {
                 type="text"
                 name="amount"
                 id="amount"
-                min="0"
-                max="1000"
-                step="0.01"
                 value={amount}
-                onChange={(e) => setAmount(parseFloat(e.target.value) || 0)}
+                onChange={handleAmountChange}
                 className="w-full pl-6 pr-3 py-2.5 bg-white/70 dark:bg-gray-800/70 border-2 border-gray-200/80 dark:border-gray-600/80 rounded-xl focus:ring-2 focus:ring-emerald-500/30 focus:bg-white dark:focus:bg-gray-700/90 focus:border-emerald-400 dark:focus:border-emerald-400 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 text-sm font-semibold shadow-sm hover:shadow-md transition-all duration-200"
                 placeholder="0.00"
                 required
