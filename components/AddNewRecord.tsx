@@ -8,7 +8,7 @@ export default function AddNewRecord() {
   const formRef = useRef<HTMLFormElement>(null);
   const [isLoading, setIsLoading] = useState(false); // State for loading spinner
   const [alertMessage, setAlertMessage] = useState<string | null>(null); // State for alert message
-  const [amount, setAmount] = useState(50); // State for expense amount
+  const [amount, setAmount] = useState(0); // State for expense amount
   const [alertType, setAlertType] = useState<'success' | 'error' | null>(null); // State for alert type
   const [category, setCategory] = useState(''); // State for expense category
   const [description, setDescription] = useState(''); // State for expense description
@@ -29,8 +29,12 @@ export default function AddNewRecord() {
     } else {
       setAlertMessage('Expense record added successfully');
       setAlertType('success');
+      setTimeout(() => {
+        setAlertMessage(null);
+        setAlertType(null);
+      }, 5000);
       formRef.current?.reset();
-      setAmount(50); // Reset the amount to the default value
+      setAmount(0); // Reset the amount to the default value
       setCategory('');
       setDescription('');
     }
