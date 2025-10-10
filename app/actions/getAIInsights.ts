@@ -1,8 +1,8 @@
 'use server';
 
 import { checkUser } from "@/lib/checkUser";
-import { db } from "@/lib/db";
 import { generateExpenseInsights, AIInsight, ExpenseRecord } from "@/lib/ai";
+import { getRecentExpenses } from "@/lib/getRecentExpenses";
 
 export default async function getAIInsights(): Promise<AIInsight[]> {
   try {
@@ -12,21 +12,7 @@ export default async function getAIInsights(): Promise<AIInsight[]> {
     }
 
     // Get user's recent expenses (last 30 days)
-    const thirtyDaysAgo = new Date();
-    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
-
-    const expenses = await db.record.findMany({
-      where: {
-        userId: user.clerkUserId,
-        createdAt: {
-          gte: thirtyDaysAgo,
-        },
-      },
-      orderBy: {
-        createdAt: 'desc',
-      },
-      take: 50, // Limit to recent 50 expenses for analysis
-    });
+    const expenses = await getRecentExpenses(user.clerkUserId);
 
     if (expenses.length === 0) {
       // Return default insights for new users
