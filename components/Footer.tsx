@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Footer = () => {
+export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-emerald-50 dark:from-gray-900 dark:via-gray-800 dark:to-emerald-900/20 border-t border-gray-100/50 dark:border-gray-700/50">
       {/* Gradient accent line */}
@@ -106,5 +106,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;
