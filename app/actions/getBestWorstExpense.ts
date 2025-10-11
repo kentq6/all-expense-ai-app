@@ -3,7 +3,7 @@
 import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs/server";
 
-export default async function getBestWorstExperience(): Promise<{
+export default async function getBestWorstExpense(): Promise<{
   bestExpense?: number;
   worstExpense?: number;
   error?: string;
