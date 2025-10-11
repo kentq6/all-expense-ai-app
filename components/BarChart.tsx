@@ -26,8 +26,8 @@ ChartJS.register(
 // Define the type for a record
 interface Record {
   date: string; // ISO date string
-  amount: number;
-  category: string;
+  amount: number; // Amount spent
+  category: string; // Expense category
 }
 
 export default function BarChart({ records }: { records: Record[] }) {
@@ -124,7 +124,7 @@ export default function BarChart({ records }: { records: Record[] }) {
   // Prepare data for the chart
   const data = {
     labels: aggregatedData.map((item) => {
-      // Format data as MM/DD for better readability
+      // Format date as MM/DD for better readability
       const [, month, day] = item.date.split("-");
       return `${month}/${day}`;
     }),
