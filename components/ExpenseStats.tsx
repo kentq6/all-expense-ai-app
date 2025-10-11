@@ -1,4 +1,4 @@
-import getBestWorstExperience from "@/app/actions/getBestWorstExperience";
+import getBestWorstExpense from "@/app/actions/getBestWorstExpense";
 import getUserRecord from "@/app/actions/getUserRecord";
 
 export default async function ExpenseStats() {
@@ -6,7 +6,7 @@ export default async function ExpenseStats() {
     // Fetch both average and range data
     const [userRecordResult, rangeResult] = await Promise.all([
       getUserRecord(),
-      getBestWorstExperience(),
+      getBestWorstExpense(),
     ]);
 
     const { record, daysWithRecords } = userRecordResult;
@@ -45,7 +45,7 @@ export default async function ExpenseStats() {
                 ${averageExpense.toFixed(2)}
               </div>
               <div className="inline-flex items-center gap-2 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-2 py-1 rounded-full text-xs font-medium">
-                <span className="w-1.5 h-1.5 bg-emerald-500 dark:bg-emerald-400 rounded-full"></span>
+                <span className="w-1.5 h-1.5 bg-emerald-500 dark:bg-emerald-400 rounded-full" />
                 Based on {validDays} days with expenses
               </div>
             </div>

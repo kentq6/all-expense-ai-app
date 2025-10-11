@@ -24,17 +24,18 @@ export default function AddNewRecord() {
     const { error } = await addExpenseRecord(formData); // Removed 'data' since it's unused
 
     if (error) {
-      setAlertMessage(error);
+      setAlertMessage(`Error: ${error}`);
       setAlertType('error'); // Set alert type to error
     } else {
-      setAlertMessage('Expense record added successfully');
+      setAlertMessage('Expense record added successfully!');
       setAlertType('success');
       setTimeout(() => {
         setAlertMessage(null);
         setAlertType(null);
       }, 5000);
       formRef.current?.reset();
-      setAmount(''); // Reset the amount to the default value
+      // Reset the amount, category, and description to the default values
+      setAmount('');
       setCategory('');
       setDescription('');
     }
@@ -120,7 +121,7 @@ export default function AddNewRecord() {
           </p>
         </div>
       </div>
-      <form 
+      <form
         ref={formRef}
         onSubmit={(e) => {
           e.preventDefault();
@@ -133,7 +134,7 @@ export default function AddNewRecord() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 p-3 sm:p-4 bg-gradient-to-r from-emerald-50/50 to-green-50/50 dark:from-emerald-900/10 dark:to-green-900/10 rounded-xl border border-emeral-100/50 dark:border-emerald-800/50">
           {/* Expense Description */}
           <div className="space-y-1.5">
-            <label 
+            <label
               htmlFor="text"
               className="flex items-center gap-2 text-xs font-semibold text-gray-700 dark:text-gray-300 tracking-wide"
             >
@@ -147,7 +148,7 @@ export default function AddNewRecord() {
                 name="text"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                className='w-full pl-3 pr-12 sm:pr-14 py-2.5 bg-white/70 dark:bg-gray-800/70 border-2 border-gray-200/80 dark:border-gray-600/80 rounded-xl focus:ring-2 focus:ring-emerald-500/30 dark:focus:ring-emerald-400 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 text-sm shadow-sm hover:shadow-md transition-all duration-200'
+                className="w-full pl-3 pr-12 sm:pr-14 py-2.5 bg-white/70 dark:bg-gray-800/70 border-2 border-gray-200/80 dark:border-gray-600/80 rounded-xl focus:ring-2 focus:ring-emerald-500/30 focus:bg-white dark:focus:bg-gray-700/90 focus:border-emerald-400 dark:focus:border-emerald-400 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 text-sm shadow-sm hover:shadow-md transition-all duration-200"
                 placeholder="Coffee, groceries, gas..."
                 required
               />
@@ -166,7 +167,7 @@ export default function AddNewRecord() {
               </button>
             </div>
             {isCategorizingAI && (
-              <div className="flex items-cente rgap-2 text-xs text-emerald-600 dark:text-emerald-400">
+              <div className="flex items-center gap-2 text-xs text-emerald-600 dark:text-emerald-400">
                 <div className="w-1.5 h-1.5 bg-emerald-500 dark:bg-emerald-400 rounded-full animate-pulse" />
                 AI is analyzing your description...
               </div>
@@ -177,7 +178,7 @@ export default function AddNewRecord() {
           <div className="space-y-1.5">
             <label
               htmlFor="date"
-              className="flex items-center gap-2 text-s font-semibold text-gray-700 dark:text-gray-300 tracking-wide"
+              className="flex items-center gap-2 text-xs font-semibold text-gray-700 dark:text-gray-300 tracking-wide"
             >
               <span className="w-1.5 h-1.5 bg-green-500 rounded-full" />
               Expense Date
@@ -186,7 +187,7 @@ export default function AddNewRecord() {
               type="date"
               name="date"
               id="date"
-              className="w-full px-3 py-2.5 bg-white/70 dark:bg-gray-800/70 border-02 border-gray-200/80 dark:border-gray-600/80 rounded-xl focus:ring-2 focus:ring-emerald-500/30 focus:bg-white dark:focus:bg-gray-700/90 focus:border-emerald-400 dark:focus:border-emerald-400 text-gray-900 dark:text-gray-100 text-sm shadow-sm hover:shadow-md transition-all duration-200"
+              className="w-full px-3 py-2.5 bg-white/70 dark:bg-gray-800/70 border-2 border-gray-200/80 dark:border-gray-600/80 rounded-xl focus:ring-2 focus:ring-emerald-500/30 focus:bg-white dark:focus:bg-gray-700/90 focus:border-emerald-400 dark:focus:border-emerald-400 text-gray-900 dark:text-gray-100 text-sm shadow-sm hover:shadow-md transition-all duration-200"
               required
               onFocus={(e) => e.target.showPicker()}
             />
@@ -194,7 +195,7 @@ export default function AddNewRecord() {
         </div>
 
         {/* Category Selection */}
-        <div className="grid grid-cols-1 md:grid-cols-2 grap-2 sm:gap-4 p-3 sm:p-4 bg-gradient-to-r from-green-50/50 to-emerald-50/50 dark:from-green-900/10 dark:to-emerald-900/10 rounded-xl border border-green-100/50 dark:border-green-800/50">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-4 p-3 sm:p-4 bg-gradient-to-r from-green-50/50 to-emerald-50/50 dark:from-green-900/10 dark:to-emerald-900/10 rounded-xl border border-green-100/50 dark:border-green-800/50">
           {/* Category Selection */}
           <div className="space-y-1.5">
             <label
@@ -203,7 +204,7 @@ export default function AddNewRecord() {
             >
               <span className="w-1.5 h-1.5 bg-green-500 rounded-full" />
               Category
-              <span className="text-xs text-gray-400 dark:text-gray-500 ml-2 font-normal hidden sm:inline-block">
+              <span className="text-xs text-gray-400 dark:text-gray-500 ml-2 font-normal hidden sm:inline">
                 Use the ✨ button above for AI suggestions
               </span>
             </label>
@@ -216,48 +217,48 @@ export default function AddNewRecord() {
               required
             >
             <option
-                value=''
+                value=""
                 disabled
-                className='text-gray-400 dark:text-gray-500'
+                className="text-gray-400 dark:text-gray-500"
               >
                 Select category...
               </option>
-              <option value='Food' className='text-gray-900 dark:text-gray-100'>
+              <option value="Food" className="text-gray-900 dark:text-gray-100">
                 🍔 Food & Dining
               </option>
               <option
-                value='Transportation'
-                className='text-gray-900 dark:text-gray-100'
+                value="Transportation"
+                className="text-gray-900 dark:text-gray-100"
               >
                 🚗 Transportation
               </option>
               <option
-                value='Shopping'
-                className='text-gray-900 dark:text-gray-100'
+                value="Shopping"
+                className="text-gray-900 dark:text-gray-100"
               >
                 🛒 Shopping
               </option>
               <option
-                value='Entertainment'
-                className='text-gray-900 dark:text-gray-100'
+                value="Entertainment"
+                className="text-gray-900 dark:text-gray-100"
               >
                 🎬 Entertainment
               </option>
               <option
-                value='Bills'
-                className='text-gray-900 dark:text-gray-100'
+                value="Bills"
+                className="text-gray-900 dark:text-gray-100"
               >
                 💡 Bills & Utilities
               </option>
               <option
-                value='Healthcare'
-                className='text-gray-900 dark:text-gray-100'
+                value="Healthcare"
+                className="text-gray-900 dark:text-gray-100"
               >
                 🏥 Healthcare
               </option>
               <option
-                value='Other'
-                className='text-gray-900 dark:text-gray-100'
+                value="Other"
+                className="text-gray-900 dark:text-gray-100"
               >
                 📦 Other
               </option>
@@ -308,7 +309,7 @@ export default function AddNewRecord() {
               </>
             ) : (
               <>
-                <span className='text-lg'>💫</span>
+                <span className="text-lg">💫</span>
                 <span>Add Expense</span>
               </>
             )}
@@ -320,21 +321,21 @@ export default function AddNewRecord() {
       {alertMessage && (
         <div
           className={`mt-4 p-3 rounded-xl border-l-4 backdrop-blur-sm ${
-            alertType === 'success'
-              ? 'bg-green-50/80 dark:bg-green-900/20 border-l-green-500 text-green-800 dark:text-green-200'
-              : 'bg-red-50/80 dark:bg-red-900/20 border-l-red-500 text-red-800 dark:text-red-200'
+            alertType === "success"
+              ? "bg-green-50/80 dark:bg-green-900/20 border-l-green-500 text-green-800 dark:text-green-200"
+              : "bg-red-50/80 dark:bg-red-900/20 border-l-red-500 text-red-800 dark:text-red-200"
           }`}
         >
           <div className="flex items-center gap-2">
             <div
               className={`w-6 h-6 rounded-full flex items-center justify-center ${
-                alertType === 'success'
-                  ? 'bg-green-100 dark:bg-green-800'
-                  : 'bg-red-100 dark:bg-red-800'
+                alertType === "success"
+                  ? "bg-green-100 dark:bg-green-800"
+                  : "bg-red-100 dark:bg-red-800"
               }`}
             >
               <span className="text-sm">
-                {alertType === 'success' ? '✅' : '⚠️'}
+                {alertType === "success" ? "✅" : "⚠️"}
               </span>
             </div>
             <p className="font-medium text-sm">{alertMessage}</p>
