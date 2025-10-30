@@ -103,7 +103,7 @@ export default function BarChart({ records }: { records: Record[] }) {
     if (amount > 200)
       return {
         bg: isDark ? "rgba(255, 99, 132, 0.3)" : "rgba(255, 00, 132, 0.2)",
-        border: isDark ? "rgba(255, 99, 132, 0.8" : "rgba(255, 99, 132, 1)",
+        border: isDark ? "rgba(255, 99, 132, 0.8)" : "rgba(255, 99, 132, 1)",
       }; // Red for high spending
     if (amount > 100)
       return {
